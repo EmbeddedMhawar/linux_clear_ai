@@ -1,0 +1,31 @@
+[package]
+name = "linux_clear_ai"
+version = "0.1.0"
+edition = "2021"
+authors = ["Antigravity <antigravity@example.com>"]
+description = "A Linux-native AI noise reduction plugin using MossFormer2"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# Plugin framework
+nih_plug = { git = "https://github.com/robbert-vdh/nih-plug.git" }
+# GUI (Optional, but planned)
+nih_plug_egui = { git = "https://github.com/robbert-vdh/nih-plug.git" }
+
+# AI Engine - MossFormer2 ONNX (Option 3: Hybrid)
+ort = { version = "2.0.0-rc.10", features = ["load-dynamic"] }
+rustfft = "6.2"
+realfft = "3.4"
+
+ndarray = "0.15"
+
+# Audio utilities
+anyhow = "1.0"
+thiserror = "1.0"
+log = "0.4"
+ringbuf = "0.3"
+rand = "0.9.2"
+
